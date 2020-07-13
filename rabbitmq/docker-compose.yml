@@ -1,0 +1,20 @@
+version: '3.5'
+
+services:
+  rabbit:
+    container_name: symfony-api-platform-rabbitmq
+    build:
+      context: ./docker
+      args:
+        UID: $U_ID
+    volumes:
+      - ./docker/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
+    ports:
+      - 5672:5672
+      - 15672:15672
+    networks:
+      - symfony-api-platform-network
+
+networks:
+  symfony-api-platform-network:
+    external: true

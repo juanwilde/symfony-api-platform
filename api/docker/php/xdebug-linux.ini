@@ -1,0 +1,5 @@
+xdebug.remote_enable=1
+xdebug.remote_host=172.17.0.1
+xdebug.remote_port=9005
+xdebug.remote_connect_back=0
+xdebug.idekey="PHPSTORM"
