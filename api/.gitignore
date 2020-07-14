@@ -14,3 +14,7 @@
 .phpunit.result.cache
 /phpunit.xml
 ###< symfony/phpunit-bridge ###
+
+###> Other files and folders ###
+.php_cs.cache
+###< Other files and folders ###
