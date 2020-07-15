@@ -5,7 +5,7 @@
 
         <field name="name" length="100"/>
         <field name="email" length="100"/>
-        <field name="password" length="100"/>
+        <field name="password" length="100" nullable="true"/>
         <field name="avatar" length="255" nullable="true"/>
         <field name="token" length="100" nullable="true"/>
         <field name="active" type="boolean"/>
