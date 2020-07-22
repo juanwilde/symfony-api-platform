@@ -17,3 +17,7 @@
 ###> Other files and folders ###
 .php_cs.cache
 ###< Other files and folders ###
+
+###> lexik/jwt-authentication-bundle ###
+/config/jwt/*.pem
+###< lexik/jwt-authentication-bundle ###
