@@ -88,6 +88,38 @@ App\Entity\User:
                   properties:
                     message:
                       type: string
+    reset_password:
+      method: POST
+      path: /users/reset_password
+      controller: App\Api\Action\User\ResetPassword
+      deserialize: false
+      openapi_context:
+        summary: Reset user password
+        requestBody:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  userId:
+                    type: string
+                    required: true
+                  resetPasswordToken:
+                    type: string
+                    required: true
+                  password:
+                    type: string
+                    required: true
+        responses:
+          200:
+            description: OK
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    User:
+                      type: object
   itemOperations:
     get:
       method: GET
