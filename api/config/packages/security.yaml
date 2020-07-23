@@ -4,17 +4,38 @@ security:
             algorithm: auto
 
     providers:
-        users_in_memory: { memory: null }
+        user_provider:
+            id: App\Security\Core\User\UserProvider
 
     firewalls:
-        dev:
-            pattern: ^/(_(profiler|wdt)|css|images|js)/
+        register:
+            pattern: ^/api/v1/users/register
+            methods: [POST]
             security: false
-        main:
+        resend_activation_email:
+            pattern: ^/api/v1/users/resend_activation_email
+            methods: [POST]
+            security: false
+        docs:
+            pattern: ^/api/v1/docs
+            methods: [GET]
+            security: false
+        login:
+            pattern: /api/v1/users/login
+            stateless: true
             anonymous: true
-            lazy: true
-            provider: users_in_memory
+            provider: user_provider
+            json_login:
+                check_path: /api/v1/users/login_check
+                success_handler: lexik_jwt_authentication.handler.authentication_success
+                failure_handler: lexik_jwt_authentication.handler.authentication_failure
+                require_previous_session: false
+        api:
+            pattern: ^/api/v1
+            stateless: true
+            guard:
+                authenticators:
+                    - lexik_jwt_authentication.jwt_token_authenticator
 
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/api/v1, roles: IS_AUTHENTICATED_FULLY }
