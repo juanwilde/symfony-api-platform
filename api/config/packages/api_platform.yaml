@@ -10,6 +10,8 @@ api_platform:
             apiKey:
                 name: Authorization
                 type: header
+    enable_swagger_ui: false
+    enable_re_doc: true
     title: Symfony API Platform
     version: 1.0
     show_webby: false
