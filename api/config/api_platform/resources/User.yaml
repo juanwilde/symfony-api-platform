@@ -120,6 +120,25 @@ App\Entity\User:
                   properties:
                     User:
                       type: object
+    change_password:
+      method: POST
+      path: /users/change_password
+      controller: App\Api\Action\User\ChangePassword
+      deserialize: false
+      openapi_context:
+        summary: Changes user password
+        requestBody:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  oldPassword:
+                    type: string
+                    required: true
+                  newPassword:
+                    type: string
+                    required: true
   itemOperations:
     get:
       method: GET
