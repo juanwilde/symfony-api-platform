@@ -1,0 +1,21 @@
+framework:
+    messenger:
+        serializer:
+            default_serializer: messenger.transport.symfony_serializer
+            symfony_serializer:
+                format: json
+                context: { }
+        transports:
+            amqp_user:
+                dsn: '%env(string:MESSENGER_TRANSPORT_DSN)%'
+                options:
+                    vhost: '%env(string:MESSENGER_VHOST)%'
+                    exchange:
+                        name: '%env(string:MESSENGER_EXCHANGE)%'
+                        type: direct
+                    queues:
+                        user_queue:
+                            binding_keys: [user_queue]
+                    auto_setup: true
+        routing:
+            'App\Messenger\Message\UserRegisteredMessage': amqp_user

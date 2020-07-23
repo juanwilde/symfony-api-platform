@@ -1,0 +1,57 @@
+version: '3.5'
+
+services:
+  symfony-api-platform-mailer:
+    container_name: symfony-api-platform-mailer
+    build:
+      context: docker/php
+      args:
+        UID: $U_ID
+    environment:
+      PHP_IDE_CONFIG: serverName=Docker
+      PHP_XDEBUG_ENABLED: 1
+      XDEBUG_CONFIG: remote_host=172.17.0.1 remote_port=9005 # Linux users
+    #      XDEBUG_CONFIG: remote_host=host.docker.internal remote_port=9005 # MacOS users
+    volumes:
+      - ./:/appdata/www
+      - ./docker/php/xdebug-linux.ini:/usr/local/etc/php/conf.d/xdebug.ini
+      #      - ./docker/php/xdebug-macos.ini:/usr/local/etc/php/conf.d/xdebug.ini
+      - ~/.ssh/id_rsa:/home/appuser/.ssh/id_rsa
+    depends_on:
+      - symfony-api-platform-mailer-db
+    networks:
+      - symfony-api-platform-network
+
+  symfony-api-platform-mailer-db:
+    container_name: symfony-api-platform-mailer-db
+    image: mysql:8.0
+    ports:
+      - 36100:3306
+    environment:
+      MYSQL_DATABASE: symfony_mailer_db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: root
+    command: mysqld --sql_mode="STRICT_ALL_TABLES,NO_ENGINE_SUBSTITUTION"
+    volumes:
+      - symfony-api-platform-mailer-db-data:/var/lib/mysql
+    networks:
+      - symfony-api-platform-network
+
+  symfony-api-platform-mailcatcher:
+      container_name: symfony-api-platform-mailcatcher
+      image: schickling/mailcatcher
+      ports:
+        - 1080:1080
+        - 1025:1025
+      depends_on:
+        - symfony-api-platform-mailer-db
+      networks:
+        - symfony-api-platform-network
+
+volumes:
+  symfony-api-platform-mailer-db-data:
+
+networks:
+  symfony-api-platform-network:
+    external: true
