@@ -40,3 +40,13 @@ App\Entity\User:
   itemOperations:
     get:
       method: GET
+    activate:
+      method: PUT
+      path: /users/{id}/activate
+      controller: App\Api\Action\User\ActivateAccount
+      deserialize: false
+      denormalization_context:
+        groups: [user_activate]
+      openapi_context:
+        summary: Activates a user
+
