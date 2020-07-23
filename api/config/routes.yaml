@@ -1,3 +1,2 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+api_login_check:
+  path: /api/v1/users/login_check
