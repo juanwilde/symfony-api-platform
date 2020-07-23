@@ -62,6 +62,32 @@ App\Entity\User:
                   properties:
                     token:
                       type: string
+    request_reset_password:
+      method: POST
+      path: /users/request_reset_password
+      controller: App\Api\Action\User\RequestResetPassword
+      deserialize: false
+      openapi_context:
+        summary: Request an email with a URL to reset a user password
+        requestBody:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  email:
+                    type: string
+                    required: true
+        responses:
+          200:
+            description: OK
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    message:
+                      type: string
   itemOperations:
     get:
       method: GET
