@@ -24,4 +24,9 @@ class UserNotFoundException extends NotFoundHttpException
     {
         throw new self(\sprintf('User with id %s and resetPasswordToken %s not found', $id, $resetPasswordToken));
     }
+
+    public static function fromUserId(string $id): self
+    {
+        throw new self(\sprintf('User with id %s not found', $id));
+    }
 }
