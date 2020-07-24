@@ -24,10 +24,10 @@ class ChangePassword
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function __invoke(Request $request, User $user): User
+    public function __invoke(Request $request, string $id): User
     {
         return $this->changePasswordService->changePassword(
-            $user->getId(),
+            $id,
             RequestService::getField($request, 'oldPassword'),
             RequestService::getField($request, 'newPassword')
         );
