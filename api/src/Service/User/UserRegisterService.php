@@ -10,6 +10,7 @@ use App\Messenger\Message\UserRegisteredMessage;
 use App\Messenger\RoutingKey;
 use App\Repository\UserRepository;
 use App\Service\Password\EncoderService;
+use Doctrine\ORM\ORMException;
 use Symfony\Component\Messenger\Bridge\Amqp\Transport\AmqpStamp;
 use Symfony\Component\Messenger\MessageBusInterface;
 
@@ -29,14 +30,14 @@ class UserRegisterService
         $this->messageBus = $messageBus;
     }
 
-    public function create(string $name, string $email, $password): User
+    public function create(string $name, string $email, string $password): User
     {
         $user = new User($name, $email);
         $user->setPassword($this->encoderService->generateEncodedPassword($user, $password));
 
         try {
             $this->userRepository->save($user);
-        } catch (\Exception $exception) {
+        } catch (ORMException $e) {
             throw UserAlreadyExistException::fromEmail($email);
         }
 
