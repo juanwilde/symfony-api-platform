@@ -38,6 +38,10 @@ security:
                 success_handler: lexik_jwt_authentication.handler.authentication_success
                 failure_handler: lexik_jwt_authentication.handler.authentication_failure
                 require_previous_session: false
+        facebook_auth:
+            pattern: ^/api/v1/users/facebook/auth
+            methods: [POST]
+            security: false
         api:
             pattern: ^/api/v1
             stateless: true
