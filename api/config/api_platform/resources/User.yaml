@@ -104,6 +104,32 @@ App\Entity\User:
                   avatar:
                     type: string
                     format: binary
+    facebook_auth:
+      method: POST
+      path: /users/facebook/auth
+      controller: App\Api\Action\Facebook\Authorization
+      deserialize: false
+      openapi_context:
+        summary: OAuth with Facebook
+        requestBody:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  accessToken:
+                    type: string
+                    required: true
+        responses:
+          200:
+            description: OK
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    token:
+                      type: string
   itemOperations:
     get:
       method: GET
