@@ -1,0 +1,28 @@
+App\Entity\Group:
+  attributes:
+    normalization_context:
+      groups: [group_read]
+  collectionOperations:
+    post:
+      method: POST
+      security: is_granted("GROUP_CREATE")
+      denormalization_context:
+        groups: [group_create]
+  itemOperations:
+    get:
+      method: GET
+      security: is_granted("GROUP_READ", object)
+    put:
+      method: PUT
+      security: is_granted("GROUP_UPDATE", object)
+      denormalization_context:
+        groups: [group_update]
+    delete:
+      method: DELETE
+      security: is_granted("GROUP_DELETE", object)
+  properties:
+    users:
+      subresource:
+        resourceClass: App\Entity\User
+        collection: true
+        maxDepth: 1

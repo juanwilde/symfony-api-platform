@@ -13,6 +13,20 @@
         <field name="createdAt" type="datetime"/>
         <field name="updatedAt" type="datetime"/>
 
+        <many-to-many field="groups" target-entity="App\Entity\Group" inversed-by="users">
+            <cascade>
+                <cascade-remove/>
+            </cascade>
+            <join-table name="user_group_user">
+                <join-columns>
+                    <join-column name="user_id"/>
+                </join-columns>
+                <inverse-join-columns>
+                    <join-column name="group_id"/>
+                </inverse-join-columns>
+            </join-table>
+        </many-to-many>
+
         <lifecycle-callbacks>
             <lifecycle-callback type="preUpdate" method="markAsUpdated"/>
         </lifecycle-callbacks>
