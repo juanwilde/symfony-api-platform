@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping">
+    <entity name="App\Entity\GroupRequest" table="group_request">
+        <id name="id" type="string" length="36"/>
+
+        <field name="token" length="100"/>
+        <field name="status" length="10"/>
+        <field name="acceptedAt" type="datetime" nullable="true"/>
+
+        <many-to-one field="group" target-entity="App\Entity\Group">
+            <join-column name="group_id" on-delete="CASCADE"/>
+        </many-to-one>
+        <many-to-one field="user" target-entity="App\Entity\User">
+            <join-column name="user_id" on-delete="CASCADE"/>
+        </many-to-one>
+    </entity>
+</doctrine-mapping>

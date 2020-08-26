@@ -20,6 +20,87 @@ App\Entity\Group:
     delete:
       method: DELETE
       security: is_granted("GROUP_DELETE", object)
+    send_request:
+      method: PUT
+      path: /groups/{id}/send_request
+      controller: App\Api\Action\Group\SendRequestToUser
+      deserialize: false
+      openapi_context:
+        summary: Send a group request to a user
+        requestBody:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  email:
+                    type: string
+                    required: true
+        responses:
+          200:
+            description: OK
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    message:
+                      type: string
+    accept_request:
+      method: PUT
+      path: /groups/{id}/accept_request
+      controller: App\Api\Action\Group\AcceptRequest
+      deserialize: false
+      openapi_context:
+        summary: Add a user to a group
+        requestBody:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  userId:
+                    type: string
+                    required: true
+                  token:
+                    type: string
+                    required: true
+        responses:
+          200:
+            description: OK
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    message:
+                      type: string
+    remove_user:
+      method: PUT
+      path: /groups/{id}/remove_user
+      controller: App\Api\Action\Group\RemoveUser
+      deserialize: false
+      openapi_context:
+        summary: Remove a user from a group
+        requestBody:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  userId:
+                    type: string
+                    required: true
+        responses:
+          200:
+            description: OK
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    message:
+                      type: string
   properties:
     users:
       subresource:

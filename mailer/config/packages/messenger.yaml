@@ -23,8 +23,25 @@ framework:
                         user_queue:
                             binding_keys: [user_queue]
                     auto_setup: true
+            amqp_group:
+                dsn: '%env(string:MESSENGER_TRANSPORT_DSN)%'
+                serializer: Mailer\Serializer\Messenger\EventSerializer
+                retry_strategy:
+                    max_retries: 1
+                    delay: 1000
+                    multiplier: 1
+                options:
+                    vhost: '%env(string:MESSENGER_VHOST)%'
+                    exchange:
+                        name: '%env(string:MESSENGER_EXCHANGE)%'
+                        type: direct
+                    queues:
+                        group_queue:
+                            binding_keys: [group_queue]
+                    auto_setup: true
             failed:
                 dsn: 'doctrine://default?queue_name=failed'
         routing:
             'Mailer\Messenger\Message\UserRegisteredMessage': amqp_user
             'Mailer\Messenger\Message\RequestResetPasswordMessage': amqp_user
+            'Mailer\Messenger\Message\GroupRequestMessage': amqp_group
