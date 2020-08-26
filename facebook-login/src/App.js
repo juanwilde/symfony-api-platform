@@ -12,7 +12,7 @@ function App() {
   const responseFacebook = (response) => {
     axios.post(`${process.env.REACT_APP_API_PATH}/users/facebook/auth`, { accessToken: response.accessToken })
       .then(res => setSuccess(res.data.token))
-      .catch(err => setError(err.message));
+      .catch(err => setError(err.message)); 
   }
 
   return (
