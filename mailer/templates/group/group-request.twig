@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <p>{{ requesterName }} te ha invitado a unirte a su grupo {{ groupName }}</p>
+    <p>Haz click en el siguiente enlace para aceptar la invitación</p>
+    <p>
+        <a href="{{ url }}">{{ url }}</a>
+    </p>
+{% endblock %}

@@ -28,6 +28,10 @@ security:
             pattern: ^/api/v1/users/reset_password
             methods: [POST]
             security: false
+        accept_request:
+            pattern: ^/api/v1/groups/.*/accept_request
+            methods: [PUT]
+            security: false
         login:
             pattern: /api/v1/users/login
             stateless: true

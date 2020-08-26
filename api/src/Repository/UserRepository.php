@@ -16,7 +16,7 @@ class UserRepository extends BaseRepository
         return User::class;
     }
 
-    public function findOneById(string $id): User
+    public function findOneByIdOrFail(string $id): User
     {
         if (null === $user = $this->objectRepository->find($id)) {
             throw UserNotFoundException::fromUserId($id);
