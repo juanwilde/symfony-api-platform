@@ -1,0 +1,14 @@
+App\Entity\Group:
+  attributes:
+    id:
+      groups: [group_read]
+    name:
+      groups: [group_read, group_create, group_update]
+    owner:
+      groups: [group_read]
+    users:
+      groups: [group_read]
+    createdAt:
+      groups: [group_read]
+    updatedAt:
+      groups: [group_read]
