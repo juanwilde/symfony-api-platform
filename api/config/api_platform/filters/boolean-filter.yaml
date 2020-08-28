@@ -1,0 +1,10 @@
+services:
+  app.custom.boolean_filter:
+    parent: 'api_platform.doctrine.orm.boolean_filter'
+    arguments:
+      -
+        active: ~
+    tags:
+      - { name: 'api_platform.filter', id: 'app.custom.boolean_filter' }
+    autowire: false
+    autoconfigure: false

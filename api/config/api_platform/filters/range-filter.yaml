@@ -1,0 +1,10 @@
+services:
+  app.custom.range_filter:
+    parent: 'api_platform.doctrine.orm.range_filter'
+    arguments:
+      -
+        amount: ~
+    tags:
+      - { name: 'api_platform.filter', id: 'app.custom.range_filter' }
+    autowire: false
+    autoconfigure: false

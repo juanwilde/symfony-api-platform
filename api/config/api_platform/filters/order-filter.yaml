@@ -1,0 +1,10 @@
+services:
+  app.custom.order_filter:
+    parent: 'api_platform.doctrine.orm.order_filter'
+    arguments:
+      -
+        name: ~
+    tags:
+      - { name: 'api_platform.filter', id: 'app.custom.order_filter' }
+    autowire: false
+    autoconfigure: false

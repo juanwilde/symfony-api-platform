@@ -2,6 +2,12 @@ App\Entity\User:
   attributes:
     normalization_context:
       groups: [user_read]
+    filters:
+      - ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\DateFilter
+      - app.custom.search_filter
+      - app.custom.boolean_filter
+      - app.custom.exists_filter
+      - app.custom.order_filter
   collectionOperations:
     register:
       method: POST
