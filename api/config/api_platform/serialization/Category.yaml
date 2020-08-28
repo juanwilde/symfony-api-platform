@@ -3,7 +3,7 @@ App\Entity\Category:
     id:
       groups: [category_read]
     name:
-      groups: [category_read, category_create, category_update]
+      groups: [category_read, category_create, category_update, movement_read]
     type:
       groups: [category_read, category_create]
     owner:

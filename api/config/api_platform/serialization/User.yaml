@@ -3,13 +3,13 @@ App\Entity\User:
     id:
       groups: [user_read]
     name:
-      groups: [user_read, user_register, user_update]
+      groups: [user_read, user_register, user_update, movement_read]
     email:
       groups: [user_read, user_register]
     password:
       groups: [user_register]
     avatar:
-      groups: [user_read]
+      groups: [user_read, movement_read]
     active:
       groups: [user_read]
     token:

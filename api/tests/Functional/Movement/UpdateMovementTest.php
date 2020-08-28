@@ -28,7 +28,7 @@ class UpdateMovementTest extends MovementTestBase
         $responseData = $this->getResponseData($response);
 
         $this->assertEquals(JsonResponse::HTTP_OK, $response->getStatusCode());
-        $this->assertEquals($payload['category'], $responseData['category']);
+        $this->assertEquals($payload['category'], $responseData['category']['@id']);
         $this->assertEquals($payload['amount'], $responseData['amount']);
     }
 
