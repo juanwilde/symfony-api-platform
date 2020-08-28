@@ -1,0 +1,22 @@
+App\Entity\Movement:
+  attributes:
+    normalization_context:
+      groups: [movement_read]
+  collectionOperations:
+    post:
+      method: POST
+      security: is_granted("MOVEMENT_CREATE")
+      denormalization_context:
+        groups: [movement_create]
+  itemOperations:
+    get:
+      method: GET
+      security: is_granted("MOVEMENT_READ", object)
+    put:
+      method: PUT
+      security: is_granted("MOVEMENT_UPDATE", object)
+      denormalization_context:
+        groups: [movement_update]
+    delete:
+      method: DELETE
+      security: is_granted("MOVEMENT_DELETE", object)

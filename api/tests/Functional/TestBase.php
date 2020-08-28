@@ -122,6 +122,26 @@ class TestBase extends WebTestCase
      *
      * @throws DBALException
      */
+    protected function getPeterMovementId()
+    {
+        return $this->initDbConnection()->query('SELECT id FROM movement WHERE amount = 100')->fetchColumn(0);
+    }
+
+    /**
+     * @return false|mixed
+     *
+     * @throws DBALException
+     */
+    protected function getPeterGroupMovementId()
+    {
+        return $this->initDbConnection()->query('SELECT id FROM movement WHERE amount = 1000')->fetchColumn(0);
+    }
+
+    /**
+     * @return false|mixed
+     *
+     * @throws DBALException
+     */
     protected function getBrianId()
     {
         return $this->initDbConnection()->query('SELECT id FROM user WHERE email = "brian@api.com"')->fetchColumn(0);
@@ -155,5 +175,25 @@ class TestBase extends WebTestCase
     protected function getBrianGroupExpenseCategoryId()
     {
         return $this->initDbConnection()->query('SELECT id FROM category WHERE name = "Brian Group Expense Category"')->fetchColumn(0);
+    }
+
+    /**
+     * @return false|mixed
+     *
+     * @throws DBALException
+     */
+    protected function getBrianMovementId()
+    {
+        return $this->initDbConnection()->query('SELECT id FROM movement WHERE amount = 200')->fetchColumn(0);
+    }
+
+    /**
+     * @return false|mixed
+     *
+     * @throws DBALException
+     */
+    protected function getBrianGroupMovementId()
+    {
+        return $this->initDbConnection()->query('SELECT id FROM movement WHERE amount = 2000')->fetchColumn(0);
     }
 }

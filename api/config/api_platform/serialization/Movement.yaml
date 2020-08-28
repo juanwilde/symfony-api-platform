@@ -1,0 +1,18 @@
+App\Entity\Movement:
+  attributes:
+    id:
+      groups: [movement_read]
+    category:
+      groups: [movement_read, movement_create, movement_update]
+    owner:
+      groups: [movement_read, movement_create]
+    group:
+      groups: [movement_read, movement_create]
+    amount:
+      groups: [movement_read, movement_create, movement_update]
+    filePath:
+      groups: [movement_read]
+    createdAt:
+      groups: [movement_read]
+    updatedAt:
+      groups: [movement_read]
