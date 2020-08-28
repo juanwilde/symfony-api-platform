@@ -4,6 +4,7 @@ App\Entity\Movement:
       category: '@Category-0'
       owner: '@User-0'
       amount: 100
+    filePath: 'example.txt'
   Movement-1:
     __construct: # Expense movement for Peter Group
       category: '@Category-2'

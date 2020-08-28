@@ -9,6 +9,7 @@ use App\Repository\UserRepository;
 use App\Service\File\FileService;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
+use League\Flysystem\AdapterInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 class UploadAvatarService
@@ -34,7 +35,7 @@ class UploadAvatarService
 
         $this->fileService->deleteFile($user->getAvatar());
 
-        $fileName = $this->fileService->uploadFile($file, FileService::AVATAR_INPUT_NAME);
+        $fileName = $this->fileService->uploadFile($file, FileService::AVATAR_INPUT_NAME, AdapterInterface::VISIBILITY_PUBLIC);
 
         $user->setAvatar($fileName);
 
