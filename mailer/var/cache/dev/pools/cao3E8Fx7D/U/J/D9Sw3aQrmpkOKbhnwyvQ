@@ -1,0 +1,24 @@
+<?php //Symfony_Component_Messenger_Stamp_BusNameStamp
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Symfony\\Component\\Serializer\\Mapping\\ClassMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Serializer\\Mapping\\ClassMetadata')),
+        clone ($p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata')),
+    ],
+    null,
+    [
+        'stdClass' => [
+            'name' => [
+                'Symfony\\Component\\Messenger\\Stamp\\BusNameStamp',
+                'busName',
+            ],
+            'attributesMetadata' => [
+                [
+                    'busName' => $o[1],
+                ],
+            ],
+        ],
+    ],
+    $o[0],
+    []
+); }];

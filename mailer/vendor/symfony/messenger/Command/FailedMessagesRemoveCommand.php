@@ -1,0 +1,97 @@
+<?php
+
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Symfony\Component\Messenger\Command;
+
+use Symfony\Component\Console\Exception\RuntimeException;
+use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Output\ConsoleOutputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Style\SymfonyStyle;
+use Symfony\Component\Messenger\Transport\Receiver\ListableReceiverInterface;
+use Symfony\Component\Messenger\Transport\Receiver\ReceiverInterface;
+
+/**
+ * @author Ryan Weaver <ryan@symfonycasts.com>
+ */
+class FailedMessagesRemoveCommand extends AbstractFailedMessagesCommand
+{
+    protected static $defaultName = 'messenger:failed:remove';
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function configure(): void
+    {
+        $this
+            ->setDefinition([
+                new InputArgument('id', InputArgument::REQUIRED | InputArgument::IS_ARRAY, 'Specific message id(s) to remove'),
+                new InputOption('force', null, InputOption::VALUE_NONE, 'Force the operation without confirmation'),
+                new InputOption('show-messages', null, InputOption::VALUE_NONE, 'Display messages before removing it (if multiple ids are given)'),
+            ])
+            ->setDescription('Remove given messages from the failure transport')
+            ->setHelp(<<<'EOF'
+The <info>%command.name%</info> removes given messages that are pending in the failure transport.
+
+    <info>php %command.full_name% {id1} [{id2} ...]</info>
+
+The specific ids can be found via the messenger:failed:show command.
+EOF
+            )
+        ;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function execute(InputInterface $input, OutputInterface $output)
+    {
+        $io = new SymfonyStyle($input, $output instanceof ConsoleOutputInterface ? $output->getErrorOutput() : $output);
+
+        $receiver = $this->getReceiver();
+
+        $shouldForce = $input->getOption('force');
+        $ids = (array) $input->getArgument('id');
+        $shouldDisplayMessages = $input->getOption('show-messages') || 1 === \count($ids);
+        $this->removeMessages($ids, $receiver, $io, $shouldForce, $shouldDisplayMessages);
+
+        return 0;
+    }
+
+    private function removeMessages(array $ids, ReceiverInterface $receiver, SymfonyStyle $io, bool $shouldForce, bool $shouldDisplayMessages): void
+    {
+        if (!$receiver instanceof ListableReceiverInterface) {
+            throw new RuntimeException(sprintf('The "%s" receiver does not support removing specific messages.', $this->getReceiverName()));
+        }
+
+        foreach ($ids as $id) {
+            $envelope = $receiver->find($id);
+            if (null === $envelope) {
+                $io->error(sprintf('The message with id "%s" was not found.', $id));
+                continue;
+            }
+
+            if ($shouldDisplayMessages) {
+                $this->displaySingleMessage($envelope, $io);
+            }
+
+            if ($shouldForce || $io->confirm('Do you want to permanently remove this message?', false)) {
+                $receiver->reject($envelope);
+
+                $io->success(sprintf('Message with id %s removed.', $id));
+            } else {
+                $io->note(sprintf('Message with id %s not removed.', $id));
+            }
+        }
+    }
+}

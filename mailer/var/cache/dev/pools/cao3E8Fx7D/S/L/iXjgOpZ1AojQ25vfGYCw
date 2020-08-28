@@ -1,0 +1,36 @@
+<?php //Symfony_Component_Messenger_Stamp_RedeliveryStamp
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Symfony\\Component\\Serializer\\Mapping\\ClassMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Serializer\\Mapping\\ClassMetadata')),
+        clone ($p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata')),
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+    ],
+    null,
+    [
+        'stdClass' => [
+            'name' => [
+                'Symfony\\Component\\Messenger\\Stamp\\RedeliveryStamp',
+                'retryCount',
+                'redeliveredAt',
+                'exceptionMessage',
+                'flattenException',
+                'retryCountFromEnvelope',
+            ],
+            'attributesMetadata' => [
+                [
+                    'retryCount' => $o[1],
+                    'redeliveredAt' => $o[2],
+                    'exceptionMessage' => $o[3],
+                    'flattenException' => $o[4],
+                    'retryCountFromEnvelope' => $o[5],
+                ],
+            ],
+        ],
+    ],
+    $o[0],
+    []
+); }];
