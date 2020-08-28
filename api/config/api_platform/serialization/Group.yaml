@@ -12,3 +12,5 @@ App\Entity\Group:
       groups: [group_read]
     updatedAt:
       groups: [group_read]
+    categories:
+      groups: [group_read]

@@ -1,0 +1,22 @@
+App\Entity\Category:
+  attributes:
+    normalization_context:
+      groups: [category_read]
+  collectionOperations:
+    post:
+      method: POST
+      security: is_granted("CATEGORY_CREATE")
+      denormalization_context:
+        groups: [category_create]
+  itemOperations:
+    get:
+      method: GET
+      security: is_granted("CATEGORY_READ", object)
+    put:
+      method: PUT
+      security: is_granted("CATEGORY_UPDATE", object)
+      denormalization_context:
+        groups: [category_update]
+    delete:
+      method: DELETE
+      security: is_granted("CATEGORY_DELETE", object)

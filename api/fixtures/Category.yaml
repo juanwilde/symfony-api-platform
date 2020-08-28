@@ -1,0 +1,45 @@
+App\Entity\Category:
+  Category-0:
+    __construct:
+      name: Peter Expense Category
+      type: expense
+      owner: '@User-0'
+  Category-1:
+    __construct:
+      name: Peter Income Category
+      type: income
+      owner: '@User-0'
+  Category-2:
+    __construct:
+      name: Peter Group Expense Category
+      type: expense
+      owner: '@User-0'
+      group: '@Group-0'
+  Category-3:
+    __construct:
+      name: Peter Group Income Category
+      type: income
+      owner: '@User-0'
+      group: '@Group-0'
+  Category-4:
+    __construct:
+      name: Brian Expense Category
+      type: expense
+      owner: '@User-1'
+  Category-5:
+    __construct:
+      name: Brian Income Category
+      type: income
+      owner: '@User-1'
+  Category-6:
+    __construct:
+      name: Brian Group Expense Category
+      type: expense
+      owner: '@User-1'
+      group: '@Group-1'
+  Category-7:
+    __construct:
+      name: Brian Group Income Category
+      type: income
+      owner: '@User-1'
+      group: '@Group-1'
