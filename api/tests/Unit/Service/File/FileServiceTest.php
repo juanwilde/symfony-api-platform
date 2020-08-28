@@ -75,7 +75,7 @@ class FileServiceTest extends TestCase
         $this->storage
             ->expects($this->exactly(1))
             ->method('delete')
-            ->with(\explode($this->mediaPath, $path)[1])
+            ->with($path)
             ->willReturn(true);
 
         $this->service->deleteFile($path);
@@ -88,7 +88,7 @@ class FileServiceTest extends TestCase
         $this->storage
             ->expects($this->exactly(1))
             ->method('delete')
-            ->with(\explode($this->mediaPath, $path)[1])
+            ->with($path)
             ->willThrowException(new FileNotFoundException($path));
 
         $this->logger
