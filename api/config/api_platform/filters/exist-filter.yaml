@@ -1,0 +1,10 @@
+services:
+  app.custom.exists_filter:
+    parent: 'api_platform.doctrine.orm.exists_filter'
+    arguments:
+      -
+        avatar: ~
+    tags:
+      - { name: 'api_platform.filter', id: 'app.custom.exists_filter' }
+    autowire: false
+    autoconfigure: false

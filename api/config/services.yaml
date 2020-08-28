@@ -1,4 +1,10 @@
-parameters:
+imports:
+    - { resource: api_platform/filters/search-filter.yaml }
+    - { resource: api_platform/filters/boolean-filter.yaml }
+    - { resource: api_platform/filters/exist-filter.yaml }
+    - { resource: api_platform/filters/order-filter.yaml }
+    - { resource: api_platform/filters/numeric-filter.yaml }
+    - { resource: api_platform/filters/range-filter.yaml }
 
 services:
     _defaults:
@@ -35,6 +41,23 @@ services:
               credentials:
                   key: '%env(resolve:KEY)%'
                   secret: '%env(resolve:SECRET)%'
+
+    ###> API Platform filters ###
+    ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\DateFilter:
+        tags: [ 'api_platform.filter' ]
+
+    ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter:
+        tags: [ 'api_platform.filter' ]
+
+    ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\BooleanFilter:
+        tags: [ 'api_platform.filter' ]
+
+    ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\NumericFilter:
+        tags: [ 'api_platform.filter' ]
+
+    ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\RangeFilter:
+        tags: [ 'api_platform.filter' ]
+    ###< API Platform filters ###
 
     _instanceof:
         App\Api\Listener\PreWriteListener\PreWriteListener:

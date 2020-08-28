@@ -1,0 +1,10 @@
+services:
+  app.custom.numeric_filter:
+    parent: 'api_platform.doctrine.orm.numeric_filter'
+    arguments:
+      -
+        amount: ~
+    tags:
+      - { name: 'api_platform.filter', id: 'app.custom.numeric_filter' }
+    autowire: false
+    autoconfigure: false

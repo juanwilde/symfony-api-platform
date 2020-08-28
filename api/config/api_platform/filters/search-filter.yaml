@@ -1,0 +1,12 @@
+services:
+  app.custom.search_filter:
+    parent: 'api_platform.doctrine.orm.search_filter'
+    arguments:
+      -
+        name: partial
+        email: exact
+        category.name: partial
+    tags:
+      - { name: 'api_platform.filter', id: 'app.custom.search_filter' }
+    autowire: false
+    autoconfigure: false
