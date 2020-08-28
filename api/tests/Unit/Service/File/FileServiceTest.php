@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Tests\Unit\Service\File;
 
 use App\Service\File\FileService;
+use League\Flysystem\AdapterInterface;
 use League\Flysystem\FileNotFoundException;
 use League\Flysystem\FilesystemInterface;
 use PHPUnit\Framework\MockObject\MockObject;
@@ -43,7 +44,7 @@ class FileServiceTest extends TestCase
         $uploadedFile->method('guessExtension')->willReturn('png');
         $prefix = 'avatar';
 
-        $response = $this->service->uploadFile($uploadedFile, $prefix);
+        $response = $this->service->uploadFile($uploadedFile, $prefix, AdapterInterface::VISIBILITY_PUBLIC);
 
         $this->assertIsString($response);
     }

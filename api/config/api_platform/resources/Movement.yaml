@@ -8,6 +8,46 @@ App\Entity\Movement:
       security: is_granted("MOVEMENT_CREATE")
       denormalization_context:
         groups: [movement_create]
+    upload_file:
+      method: POST
+      path: /movements/{id}/upload_file
+      controller: App\Api\Action\Movement\UploadFile
+      deserialize: false
+      openapi_context:
+        summary: Upload a file attached to a movement
+        requestBody:
+          content:
+            multipart/form-data:
+              schema:
+                type: object
+                properties:
+                  file:
+                    type: string
+                    format: binary
+    download_file:
+      method: POST
+      path: /movements/{id}/download_file
+      controller: App\Api\Action\Movement\DownloadFile
+      deserialize: false
+      openapi_context:
+        summary: Download a file attached to a movement
+        requestBody:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  filePath:
+                    type: string
+                    required: true
+        responses:
+          200:
+            description: OK
+            content:
+              application/octet-stream:
+                schema:
+                  type: string
+                  format: binary
   itemOperations:
     get:
       method: GET
