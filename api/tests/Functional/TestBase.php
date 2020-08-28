@@ -102,6 +102,26 @@ class TestBase extends WebTestCase
      *
      * @throws DBALException
      */
+    protected function getPeterExpenseCategoryId()
+    {
+        return $this->initDbConnection()->query('SELECT id FROM category WHERE name = "Peter Expense Category"')->fetchColumn(0);
+    }
+
+    /**
+     * @return false|mixed
+     *
+     * @throws DBALException
+     */
+    protected function getPeterGroupExpenseCategoryId()
+    {
+        return $this->initDbConnection()->query('SELECT id FROM category WHERE name = "Peter Group Expense Category"')->fetchColumn(0);
+    }
+
+    /**
+     * @return false|mixed
+     *
+     * @throws DBALException
+     */
     protected function getBrianId()
     {
         return $this->initDbConnection()->query('SELECT id FROM user WHERE email = "brian@api.com"')->fetchColumn(0);
@@ -115,5 +135,25 @@ class TestBase extends WebTestCase
     protected function getBrianGroupId()
     {
         return $this->initDbConnection()->query('SELECT id FROM user_group WHERE name = "Brian Group"')->fetchColumn(0);
+    }
+
+    /**
+     * @return false|mixed
+     *
+     * @throws DBALException
+     */
+    protected function getBrianExpenseCategoryId()
+    {
+        return $this->initDbConnection()->query('SELECT id FROM category WHERE name = "Brian Expense Category"')->fetchColumn(0);
+    }
+
+    /**
+     * @return false|mixed
+     *
+     * @throws DBALException
+     */
+    protected function getBrianGroupExpenseCategoryId()
+    {
+        return $this->initDbConnection()->query('SELECT id FROM category WHERE name = "Brian Group Expense Category"')->fetchColumn(0);
     }
 }

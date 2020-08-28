@@ -202,3 +202,8 @@ App\Entity\User:
         resourceClass: App\Entity\Group
         collection: true
         maxDepth: 1
+    categories:
+      subresource:
+        resourceClass: App\Entity\Category
+        collection: true
+        maxDepth: 1
