@@ -1,0 +1,23 @@
+App\Entity\Movement:
+  Movement-0:
+    __construct: # Expense movement for Peter
+      category: '@Category-0'
+      owner: '@User-0'
+      amount: 100
+  Movement-1:
+    __construct: # Expense movement for Peter Group
+      category: '@Category-2'
+      owner: '@User-0'
+      group: '@Group-0'
+      amount: 1000
+  Movement-2:
+    __construct: # Expense movement for Brian
+      category: '@Category-4'
+      owner: '@User-1'
+      amount: 200
+  Movement-3:
+    __construct: # Expense movement for Brian Group
+      category: '@Category-6'
+      owner: '@User-1'
+      group: '@Group-1'
+      amount: 2000

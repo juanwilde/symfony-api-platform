@@ -19,6 +19,12 @@
             </cascade>
         </one-to-many>
 
+        <one-to-many field="movements" target-entity="App\Entity\Movement" mapped-by="owner">
+            <cascade>
+                <cascade-remove/>
+            </cascade>
+        </one-to-many>
+
         <many-to-many field="groups" target-entity="App\Entity\Group" inversed-by="users">
             <cascade>
                 <cascade-remove/>
