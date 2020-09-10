@@ -6,7 +6,10 @@
 /public/bundles/
 /var/
 /vendor/
+<<<<<<< HEAD
 docker-compose.yml
+=======
+>>>>>>> section26/modifying-api-tips-and-tricks
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###
@@ -19,6 +22,7 @@ docker-compose.yml
 .php_cs.cache
 .idea
 .DS_Store
+docker-compose.yml
 ###< Other files and folders ###
 
 ###> lexik/jwt-authentication-bundle ###
