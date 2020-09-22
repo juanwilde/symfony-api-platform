@@ -35,3 +35,8 @@ services:
               credentials:
                   key: '%env(resolve:KEY)%'
                   secret: '%env(resolve:SECRET)%'
+
+    _instanceof:
+        App\Api\Listener\PreWrite\PreWriteListener:
+            tags:
+                - { name: kernel.event_listener, event: kernel.view, method: onKernelView, priority: 33 }
