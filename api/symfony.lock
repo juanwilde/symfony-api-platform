@@ -385,9 +385,6 @@
     "symfony/http-kernel": {
         "version": "v5.1.2"
     },
-    "symfony/inflector": {
-        "version": "v5.1.2"
-    },
     "symfony/maker-bundle": {
         "version": "1.0",
         "recipe": {
@@ -521,6 +518,9 @@
     },
     "symfony/serializer": {
         "version": "v5.1.2"
+    },
+    "symfony/serializer-pack": {
+        "version": "v1.0.3"
     },
     "symfony/service-contracts": {
         "version": "v2.1.3"
