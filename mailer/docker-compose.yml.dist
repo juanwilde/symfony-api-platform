@@ -39,15 +39,15 @@ services:
       - symfony-api-platform-network
 
   symfony-api-platform-mailcatcher:
-    container_name: symfony-api-platform-mailcatcher
-    image: schickling/mailcatcher
-    ports:
-      - 1080:1080
-      - 1025:1025
-    depends_on:
-      - symfony-api-platform-mailer-db
-    networks:
-      - symfony-api-platform-network
+      container_name: symfony-api-platform-mailcatcher
+      image: schickling/mailcatcher
+      ports:
+        - 1080:1080
+        - 1025:1025
+      depends_on:
+        - symfony-api-platform-mailer-db
+      networks:
+        - symfony-api-platform-network
 
 volumes:
   symfony-api-platform-mailer-db-data:
