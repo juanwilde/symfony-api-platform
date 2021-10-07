@@ -1652,6 +1652,7 @@
                 "reflection",
                 "static"
             ],
+            "abandoned": "roave/better-reflection",
             "time": "2020-03-27T11:06:43+00:00"
         },
         {
@@ -1821,6 +1822,84 @@
                 "rest"
             ],
             "time": "2020-04-27T06:40:36+00:00"
+        },
+        {
+            "name": "friendsofphp/proxy-manager-lts",
+            "version": "v1.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FriendsOfPHP/proxy-manager-lts.git",
+                "reference": "006aa5d32f887a4db4353b13b5b5095613e0611f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FriendsOfPHP/proxy-manager-lts/zipball/006aa5d32f887a4db4353b13b5b5095613e0611f",
+                "reference": "006aa5d32f887a4db4353b13b5b5095613e0611f",
+                "shasum": ""
+            },
+            "require": {
+                "laminas/laminas-code": "~3.4.1|^4.0",
+                "php": ">=7.1",
+                "symfony/filesystem": "^4.4.17|^5.0|^6.0"
+            },
+            "conflict": {
+                "laminas/laminas-stdlib": "<3.2.1",
+                "zendframework/zend-stdlib": "<3.2.1"
+            },
+            "replace": {
+                "ocramius/proxy-manager": "^2.1"
+            },
+            "require-dev": {
+                "ext-phar": "*",
+                "symfony/phpunit-bridge": "^5.2|^6.0"
+            },
+            "type": "library",
+            "extra": {
+                "thanks": {
+                    "name": "ocramius/proxy-manager",
+                    "url": "https://github.com/Ocramius/ProxyManager"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ProxyManager\\": "src/ProxyManager"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marco Pivetta",
+                    "email": "ocramius@gmail.com",
+                    "homepage": "http://ocramius.github.io/"
+                },
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                }
+            ],
+            "description": "Adding support for a wider range of PHP versions to ocramius/proxy-manager",
+            "homepage": "https://github.com/FriendsOfPHP/proxy-manager-lts",
+            "keywords": [
+                "aop",
+                "lazy loading",
+                "proxy",
+                "proxy pattern",
+                "service proxies"
+            ],
+            "funding": [
+                {
+                    "url": "https://github.com/Ocramius",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/ocramius/proxy-manager",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2021-05-22T16:11:15+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -2288,16 +2367,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.1.3",
+            "version": "1.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "9be3b16c877d477357c015cec057548cf9b2a14a"
+                "reference": "f3ad69181b8afed2c9edf7be5a2918144ff4ea32"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/9be3b16c877d477357c015cec057548cf9b2a14a",
-                "reference": "9be3b16c877d477357c015cec057548cf9b2a14a",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/f3ad69181b8afed2c9edf7be5a2918144ff4ea32",
+                "reference": "f3ad69181b8afed2c9edf7be5a2918144ff4ea32",
                 "shasum": ""
             },
             "require": {
@@ -2313,7 +2392,6 @@
                 "phpunit/phpunit": "^8.5.8"
             },
             "suggest": {
-                "ext-fileinfo": "Required for MimeType",
                 "ext-ftp": "Allows you to use FTP server storage",
                 "ext-openssl": "Allows you to use FTPS server storage",
                 "league/flysystem-aws-s3-v2": "Allows you to use S3 storage with AWS SDK v2",
@@ -2375,7 +2453,7 @@
                     "type": "other"
                 }
             ],
-            "time": "2020-08-23T07:39:11+00:00"
+            "time": "2021-06-23T21:56:05+00:00"
         },
         {
             "name": "league/flysystem-aws-s3-v3",
@@ -2541,16 +2619,16 @@
         },
         {
             "name": "league/mime-type-detection",
-            "version": "1.5.0",
+            "version": "1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/mime-type-detection.git",
-                "reference": "ea2fbfc988bade315acd5967e6d02274086d0f28"
+                "reference": "3b9dff8aaf7323590c1d2e443db701eb1f9aa0d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/mime-type-detection/zipball/ea2fbfc988bade315acd5967e6d02274086d0f28",
-                "reference": "ea2fbfc988bade315acd5967e6d02274086d0f28",
+                "url": "https://api.github.com/repos/thephpleague/mime-type-detection/zipball/3b9dff8aaf7323590c1d2e443db701eb1f9aa0d3",
+                "reference": "3b9dff8aaf7323590c1d2e443db701eb1f9aa0d3",
                 "shasum": ""
             },
             "require": {
@@ -2558,8 +2636,9 @@
                 "php": "^7.2 || ^8.0"
             },
             "require-dev": {
-                "phpstan/phpstan": "^0.12.36",
-                "phpunit/phpunit": "^8.5.8"
+                "friendsofphp/php-cs-fixer": "^2.18",
+                "phpstan/phpstan": "^0.12.68",
+                "phpunit/phpunit": "^8.5.8 || ^9.3"
             },
             "type": "library",
             "autoload": {
@@ -2588,7 +2667,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-09-21T18:10:53+00:00"
+            "time": "2021-01-18T20:58:21+00:00"
         },
         {
             "name": "lexik/jwt-authentication-bundle",
@@ -2959,91 +3038,6 @@
                 "crossdomain"
             ],
             "time": "2020-07-22T11:44:28+00:00"
-        },
-        {
-            "name": "ocramius/proxy-manager",
-            "version": "2.8.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Ocramius/ProxyManager.git",
-                "reference": "ac1dd414fd114cfc0da9930e0ab46063c2f5e62a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Ocramius/ProxyManager/zipball/ac1dd414fd114cfc0da9930e0ab46063c2f5e62a",
-                "reference": "ac1dd414fd114cfc0da9930e0ab46063c2f5e62a",
-                "shasum": ""
-            },
-            "require": {
-                "laminas/laminas-code": "^3.4.1",
-                "ocramius/package-versions": "^1.8.0",
-                "php": "~7.4.1",
-                "webimpress/safe-writer": "^2.0.1"
-            },
-            "conflict": {
-                "doctrine/annotations": "<1.6.1",
-                "laminas/laminas-stdlib": "<3.2.1",
-                "zendframework/zend-stdlib": "<3.2.1"
-            },
-            "require-dev": {
-                "doctrine/coding-standard": "^6.0.0",
-                "ext-phar": "*",
-                "infection/infection": "^0.16.2",
-                "nikic/php-parser": "^4.4.0",
-                "phpbench/phpbench": "^0.17.0",
-                "phpunit/phpunit": "^9.1.1",
-                "slevomat/coding-standard": "^5.0.4",
-                "squizlabs/php_codesniffer": "^3.5.4",
-                "vimeo/psalm": "^3.11.1"
-            },
-            "suggest": {
-                "laminas/laminas-json": "To have the JsonRpc adapter (Remote Object feature)",
-                "laminas/laminas-soap": "To have the Soap adapter (Remote Object feature)",
-                "laminas/laminas-xmlrpc": "To have the XmlRpc adapter (Remote Object feature)",
-                "ocramius/generated-hydrator": "To have very fast object to array to object conversion for ghost objects"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "ProxyManager\\": "src/ProxyManager"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Marco Pivetta",
-                    "email": "ocramius@gmail.com",
-                    "homepage": "http://ocramius.github.io/"
-                }
-            ],
-            "description": "A library providing utilities to generate, instantiate and generally operate with Object Proxies",
-            "homepage": "https://github.com/Ocramius/ProxyManager",
-            "keywords": [
-                "aop",
-                "lazy loading",
-                "proxy",
-                "proxy pattern",
-                "service proxies"
-            ],
-            "funding": [
-                {
-                    "url": "https://github.com/Ocramius",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/ocramius/proxy-manager",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2020-04-13T14:42:16+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -8569,71 +8563,16 @@
             "time": "2020-08-05T15:13:19+00:00"
         },
         {
-            "name": "webimpress/safe-writer",
-            "version": "2.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/webimpress/safe-writer.git",
-                "reference": "5cfafdec5873c389036f14bf832a5efc9390dcdd"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/webimpress/safe-writer/zipball/5cfafdec5873c389036f14bf832a5efc9390dcdd",
-                "reference": "5cfafdec5873c389036f14bf832a5efc9390dcdd",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.2 || ^8.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^8.5.8 || ^9.3.7",
-                "vimeo/psalm": "^3.14.2",
-                "webimpress/coding-standard": "^1.1.5"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.1.x-dev",
-                    "dev-develop": "2.2.x-dev",
-                    "dev-release-1.0": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Webimpress\\SafeWriter\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-2-Clause"
-            ],
-            "description": "Tool to write files safely, to avoid race conditions",
-            "keywords": [
-                "concurrent write",
-                "file writer",
-                "race condition",
-                "safe writer",
-                "webimpress"
-            ],
-            "funding": [
-                {
-                    "url": "https://github.com/michalbundyra",
-                    "type": "github"
-                }
-            ],
-            "time": "2020-08-25T07:21:11+00:00"
-        },
-        {
             "name": "webmozart/assert",
             "version": "1.9.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/webmozart/assert.git",
+                "url": "https://github.com/webmozarts/assert.git",
                 "reference": "bafc69caeb4d49c39fd0779086c03a3738cbb389"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozart/assert/zipball/bafc69caeb4d49c39fd0779086c03a3738cbb389",
+                "url": "https://api.github.com/repos/webmozarts/assert/zipball/bafc69caeb4d49c39fd0779086c03a3738cbb389",
                 "reference": "bafc69caeb4d49c39fd0779086c03a3738cbb389",
                 "shasum": ""
             },
@@ -8851,6 +8790,7 @@
                 "faker",
                 "fixtures"
             ],
+            "abandoned": true,
             "time": "2019-12-12T13:22:17+00:00"
         },
         {
@@ -9622,6 +9562,61 @@
                 }
             ],
             "time": "2020-07-30T22:54:19+00:00"
+        },
+        {
+            "name": "webimpress/safe-writer",
+            "version": "2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webimpress/safe-writer.git",
+                "reference": "5cfafdec5873c389036f14bf832a5efc9390dcdd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webimpress/safe-writer/zipball/5cfafdec5873c389036f14bf832a5efc9390dcdd",
+                "reference": "5cfafdec5873c389036f14bf832a5efc9390dcdd",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2 || ^8.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.5.8 || ^9.3.7",
+                "vimeo/psalm": "^3.14.2",
+                "webimpress/coding-standard": "^1.1.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.1.x-dev",
+                    "dev-develop": "2.2.x-dev",
+                    "dev-release-1.0": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Webimpress\\SafeWriter\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "description": "Tool to write files safely, to avoid race conditions",
+            "keywords": [
+                "concurrent write",
+                "file writer",
+                "race condition",
+                "safe writer",
+                "webimpress"
+            ],
+            "funding": [
+                {
+                    "url": "https://github.com/michalbundyra",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-08-25T07:21:11+00:00"
         }
     ],
     "aliases": [],
